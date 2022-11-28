@@ -71,16 +71,34 @@ namespace ChallengesWithTestsMark8
 
         public bool MajorityOfElementsInArrayAreNull(object[] objs)
         {
-            int itemCount = objs.Length;
-            int nullCount = 0;
-            foreach (object obj in objs)
-            {
-                if (obj == null) nullCount++;
-            }
-            if (nullCount > itemCount)
-            {
-                return true;
-            }
+            return Convert.ToDouble(objs.Where(x => x == null).Count()) / Convert.ToDouble(objs.Length) > 0.5;
+
+            //int itemCount = objs.Length;
+            //int nullCount = 0;
+            //var majority = (objs.Length / 2)+1;
+            //foreach (object obj in objs)
+            //{
+            //    if (obj == null)
+            //    {
+            //        nullCount++;
+
+
+            //    }
+            //    else if (obj != null)
+            //    {
+
+            //        itemCount++;
+            //    }
+            //    else if (nullCount > itemCount)
+            //    {
+            //        return true;
+            //    }
+            //    else
+            //    {
+            //        return false;
+            //    }
+
+
 
 
             //if (itemCount <= nullCount)
