@@ -1,4 +1,9 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
+using System.Diagnostics.Tracing;
+using System.Linq;
+using System.Runtime.InteropServices;
 
 namespace ChallengesWithTestsMark8
 {
@@ -6,47 +11,146 @@ namespace ChallengesWithTestsMark8
     {
         public int AddEvenSubtractOdd(int[] numbers)
         {
-            throw new NotImplementedException();
-        }
+            var result = 0;
+            foreach (int number in numbers)
+            {
+                if (number % 2 == 0)
+                {
+                    result += number;
+                }
+                else
+                {
+                    result -= number;
+                }
+            }
+            return result;
 
+        }
         public int GetLengthOfShortestString(string str1, string str2, string str3, string str4)
         {
-            throw new NotImplementedException();
+            List<string> shortString = new List<string>();
+            shortString.Add(str1);
+            shortString.Add(str2);
+            shortString.Add(str3);
+            shortString.Add(str4);
+            return (char)shortString.Min().Count();
+
         }
 
         public int GetSmallestNumber(int number1, int number2, int number3, int number4)
         {
-            throw new NotImplementedException();
+            var minNumber = new int[] { number1, number2, number3, number4 };
+            return minNumber.Min();
         }
+
+
+
 
         public void ChangeBusinessNameTo_TrueCoders(Business biz)
         {
-            throw new NotImplementedException();
+
+            biz.Name = "TrueCoders";
         }
 
         public bool CouldFormTriangle(int sideLength1, int sideLength2, int sideLength3)
         {
-            throw new NotImplementedException();
+            var result = (sideLength1 + sideLength2 > sideLength3 && sideLength3 + sideLength1 > sideLength2) && sideLength2 + sideLength3 > sideLength1 ? true : false;
+            return result;
         }
 
         public bool IsStringANumber(string input)
         {
-            throw new NotImplementedException();
+            if (double.TryParse(input, out double value))
+            {
+                return true;
+            }
+            return false;
+
+
         }
 
         public bool MajorityOfElementsInArrayAreNull(object[] objs)
         {
-            throw new NotImplementedException();
+            int itemCount = objs.Length;
+            int nullCount = 0;
+            foreach (object obj in objs)
+            {
+                if (obj == null) nullCount++;
+            }
+            if (nullCount > itemCount)
+            {
+                return true;
+            }
+
+
+            //if (itemCount <= nullCount)
+            //{
+            //    return true;
+            //}
+            //else
+            //{
+            //    return false;
+            //}
         }
 
         public double AverageEvens(int[] numbers)
         {
-            throw new NotImplementedException();
+            if (numbers == null || numbers.Length == 0)
+            {
+                return 0;
+            }
+            int evenSum = 0;
+            int evenCount = 0;
+            foreach (int i in numbers)
+            {
+                if (i % 2 == 0)
+                {
+                    evenSum += i;
+                    evenCount++;
+                }
+            }
+            if (evenCount == 0)
+            {
+                return 0;
+            }
+            return (double)evenSum / evenCount;
+            //if (numbers == null || numbers.Length == 0)
+            //{
+            //    return 0;
+            //}
+            //var evenAvg = numbers.Where(x => x % 2 == 0).Average();
+            //if (evenAvg.ToString().Length == 0)
+            //{
+            //    return 0;
+            //}
+
+            //else
+            //{
+            //    return evenAvg;
+            //}
         }
 
         public int Factorial(int number)
         {
-            throw new NotImplementedException();
+            if (number < 0) throw new ArgumentOutOfRangeException();
+            if(number == 0) return 1;
+            if(number > 1)
+            {
+                return number * Factorial(number - 1);
+            }
+            else
+            {
+                return number;
+            }
+            //int result = number;
+            
+
+            //for (int i = 1; i <= number; i++)
+            //{
+            //    result = result *= i;
+            //}
+            //return result;
         }
+
     }
 }

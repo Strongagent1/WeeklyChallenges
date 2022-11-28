@@ -35,7 +35,7 @@ namespace ChallengesWithTestsMark8.Tests
         [InlineData("aaaa", "aaaa", "aaaa", "aaaa", 4)]
         [InlineData("", "aa", "aaa", "aaaa", 0)]
         [InlineData("aa", "aa", "", "aaaa", 0)]
-        [InlineData("aaaaaaaaa", "a        a", "aaaaaaaa", "aaaaaaaaaaaaaaaaaaaaaaaaa", 8)]
+        [InlineData("aaaaaaaaa", "aaaaaaaa", "aaaaaaaa", "aaaaaaaaaaaaaaaaaaaaaaaaa", 8)]
         public void GetLengthOfShortestString(string string1, string string2, string string3, string string4, int expected)
         {
             // Arrange

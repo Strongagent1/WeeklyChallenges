@@ -102,7 +102,7 @@ namespace ChallengesWithTestsMark8
                 return str1.Length;
             }
         }
-
+     
         public int Sum(int[] numbers)
         {
             if (numbers == null)
@@ -118,17 +118,17 @@ namespace ChallengesWithTestsMark8
 
         public int SumEvens(int[] numbers)
         {
-            
-            
-            
-            if (numbers == null)
+
+            return numbers?.Where(x => x % 2 == 0).Sum() ?? 0;
+
+            /*if (numbers == null)
             {
                 return 0;
             }          
             
             var evenTotal = numbers.Where(x => x % 2 == 0).Sum();
             return evenTotal;
-
+            */
             //int? value = 0;
             /*
             int sum = 0;
