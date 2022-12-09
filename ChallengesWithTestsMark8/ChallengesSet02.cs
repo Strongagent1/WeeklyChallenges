@@ -155,8 +155,18 @@ namespace ChallengesWithTestsMark8
 
         public double CountOfPositiveOddsBelowNumber(int number)
         {
-            var oddCount  = Enumerable.Range(1, number).Where(num => num % 2 != 0);
-            return oddCount.Count();
+            long counter = 0;
+            for (int i = 0; i < number; i++)
+            {
+                if (i % 2 != 0)
+                {
+                    counter++;
+                }
+            }
+
+            return counter;
+            //var oddCount  = Enumerable.Range(1, number).Where(num => num % 2 != 0);
+            //return oddCount.Count();
         }
     }
 }
